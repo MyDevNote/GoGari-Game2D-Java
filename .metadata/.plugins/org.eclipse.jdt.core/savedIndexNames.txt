@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\Diego Fernandes\Desktop\Jogo 2D - Java - Trabalho acadêmico\.metadata\.plugins\org.eclipse.jdt.core
+2872044937.index
+1810852322.index

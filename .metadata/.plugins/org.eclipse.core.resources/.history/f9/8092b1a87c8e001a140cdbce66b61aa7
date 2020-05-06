@@ -1,0 +1,91 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package meujogo.modelo;
+
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+
+
+public class Player {
+    private int x, y;
+    private int dx,dy;
+    private Image imagem;
+    private int altura, largura;
+    
+    public Player() { //Definição de onde o player vai ocupar espaço na tela
+        this.x = 100;
+        this.y = 100; 
+        }
+    public void load(){ //imagem do persongem com alrura e largura a definir
+        ImageIcon referencia = new ImageIcon("res\\imgdojoreugari");
+        imagem = referencia.getImage();
+        altura = imagem.getHeight(null);
+        largura = imagem.getWidth(null);
+    }
+    
+    public void update() { //faz com que o movimento da nave vá para o eixo x ou y
+        x += dx; 
+        y += dy;
+        
+    }
+    
+    public void keyPressed(KeyEvent tecla) {
+        int codigo = tecla.getKeyCode(); //Quando pressionar uma tecla ela será reconhecida e vai executar uma ação.
+        
+        if (codigo == KeyEvent.VK_UP) {
+            dy = -3; // Aqui quando pressionar cima a nossa nave vai atribuir -3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        
+        if (codigo == KeyEvent.VK_DOWN) {
+            dy = 3; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        if (codigo == KeyEvent.VK_LEFT) {
+            dx = -3; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        if (codigo == KeyEvent.VK_RIGHT) {
+            dx = 3; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+    }
+    
+    public void keyRelease(KeyEvent tecla) {
+        int codigo = tecla.getKeyCode(); //Quando parar de pressionar 
+        
+        if (codigo == KeyEvent.VK_UP) {
+            dy = 0; // Aqui quando pressionar cima a nossa nave vai atribuir -3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        
+        if (codigo == KeyEvent.VK_DOWN) {
+            dy = 0; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        if (codigo == KeyEvent.VK_LEFT) {
+            dx = 0; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+        if (codigo == KeyEvent.VK_RIGHT) {
+            dx = 0; // Aqui quando pressionar cima a nossa nave vai atribuir 3 ao dy e somar com y (Efetuando o Pulo)
+            
+        }
+    }
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public Image getImagem() {
+		return imagem;
+	}
+    
+}
+
+
