@@ -25,7 +25,7 @@ public class Player {
         tiros = new ArrayList<Tiro>();
         }
     public void load(){ //imagem do persongem com alrura e largura a definir
-        ImageIcon referencia = new ImageIcon("res\\player-cutout.png");
+        ImageIcon referencia = new ImageIcon("res\\joreu1.png");
         imagem = referencia.getImage();
         altura = imagem.getHeight(null);
         largura = imagem.getWidth(null);

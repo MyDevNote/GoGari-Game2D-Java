@@ -19,7 +19,7 @@ public class Stars {
 	private boolean isVisivel;
 	
 	//private static final int LARGURA = 938;
-	private static int VELOCIDADE = 6;
+	private static int VELOCIDADE = 4;
 	
 	public Stars (int x, int y) {
 		this.x = x;
@@ -28,7 +28,7 @@ public class Stars {
 	}//constructor
 	
 	public void load() {
-		ImageIcon referencia = new ImageIcon("res\\star.png");
+		ImageIcon referencia = new ImageIcon("res\\stargruop.png");
 		imagem = referencia.getImage();
 		
 		this.largura = imagem.getWidth(null);

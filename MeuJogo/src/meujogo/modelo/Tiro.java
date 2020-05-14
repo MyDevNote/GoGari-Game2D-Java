@@ -10,8 +10,7 @@ public class Tiro {
 	private Image imagem; // imagem do tiro
 	private int x, y;
 	private int largura, altura;
-	private boolean isVisivel; //Quando o tiro chega no limite da tela ou no inimigo a imagem some
-	
+	private boolean isVisivel; //Quando o tiro chega no limite da tela ou no inimigo a imagem some	
 	private static final int LARGURA = 938; // número ideal para o tiro sumir adequando a resolução da tela
 	private static int VELOCIDADE = 2; // velocidade do tiro
 	

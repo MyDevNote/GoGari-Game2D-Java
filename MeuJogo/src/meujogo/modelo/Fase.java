@@ -27,31 +27,30 @@ public class Fase extends JPanel implements ActionListener {
 		setFocusable(true);
 		setDoubleBuffered(true);
 
-		ImageIcon referencia = new ImageIcon("res\\background.png"); // fundo da fase
+		ImageIcon referencia = new ImageIcon("res\\telafundo.png"); // fundo da fase
 		fundo = referencia.getImage();
-		
 
 		player = new Player();
 		player.load();
 
 		addKeyListener(new TecladoAdapter());
 
-		timer = new Timer(6, this); // Velocidade do Jogo
+		timer = new Timer(5, this); // Velocidade do Jogo
 		timer.start();
 
-		inicializaInimigos();
-		inicializaStars();
 		emJogo = true;
+
+		inicializaStars();
+		inicializaInimigos();
 
 	}// constructor
 
 	public void inicializaInimigos() {
-		int coordenadas[] = new int[30]; // 40 é o número de inimigos
+		int coordenadas[] = new int[300]; // 40 é o número de inimigos
 		enemy1 = new ArrayList<Enemy1>();
 
 		for (int k = 0; k < coordenadas.length; k++) {
 			int r = (int) (Math.random() * 8000 + 1024); // escolha de coordenadas aleatórias para o aparecimento de
-														// inimigos
 			int s = (int) (Math.random() * 650 + 30);
 			enemy1.add(new Enemy1(r, s));
 		} // for
@@ -65,7 +64,7 @@ public class Fase extends JPanel implements ActionListener {
 		for (int i = 0; i < coordenadas.length; i++) {
 			int x = (int) (Math.random() * 1050 + 1024);
 			int y = (int) ((Math.random() * 768) - (Math.random() * 768));
-			stars.add(new Stars(x, y)); 
+			stars.add(new Stars(x, y));
 		} // for
 	}// inicializaNebulas
 
@@ -73,18 +72,14 @@ public class Fase extends JPanel implements ActionListener {
 		Graphics2D graficos = (Graphics2D) g;
 		if (emJogo == true) {
 			graficos.drawImage(fundo, 0, 0, null); // Printar a iagem do fundo na tela
-			
+
 			for (int p = 0; p < stars.size(); p++) {
 				Stars q = stars.get(p);
 				q.load();
 				graficos.drawImage(q.getImagem(), q.getX(), q.getY(), this);
 			} // for
-			
-			
-			// graficos.drawImage(neb, 0, 0, null);
-			graficos.drawImage(player.getImagem(), player.getX(), player.getY(), this);
-			g.dispose();
 
+			graficos.drawImage(player.getImagem(), player.getX(), player.getY(), this);
 			
 
 			List<Tiro> tiros = player.getTiros();
@@ -94,11 +89,6 @@ public class Fase extends JPanel implements ActionListener {
 				graficos.drawImage(m.getImagem(), m.getX(), m.getY(), this);
 			} // for
 
-			graficos.drawImage(player.getImagem(), player.getX(), player.getY(), this); /// inverti aqui com o original,
-																						/// para a nave ficar aciam do
-																						/// tro, visualmente fica mais
-																						/// bonito
-
 			for (int o = 0; o < enemy1.size(); o++) {
 				Enemy1 in = enemy1.get(o);
 				in.load();
@@ -106,7 +96,7 @@ public class Fase extends JPanel implements ActionListener {
 			} // for
 		} // if
 		else {
-			ImageIcon fimJogo = new ImageIcon("\\res\\fimdejogo.png"); // imagem para fim de jogo
+			ImageIcon fimJogo = new ImageIcon("res\\fimdejogo.png"); // imagem para fim de jogo
 			graficos.drawImage(fimJogo.getImage(), 0, 0, 1024, 728, null);
 		} // else
 
@@ -115,10 +105,10 @@ public class Fase extends JPanel implements ActionListener {
 	}// paint
 
 	@Override
-	public void actionPerformed(ActionEvent e) { // Código para arualizar a tela
+	public void actionPerformed(ActionEvent e) { // Código para atualizar a tela
 		player.update();
 		repaint();
-		for (int p = 0; p < stars.size(); p++) {
+		for (int p = 0; p < stars.size(); p++) {	
 			Stars on = stars.get(p);
 			if (on.isVisivel()) {
 				on.update();

@@ -19,7 +19,7 @@ public class Enemy1 {
 	private boolean isVisivel;
 	
 	//private static final int LARGURA = 938;
-	private static int VELOCIDADE = 3;
+	private static int VELOCIDADE = 2;
 	
 	public Enemy1 (int x, int y) {
 		this.x = x;
@@ -30,7 +30,6 @@ public class Enemy1 {
 	public void load() {
 		ImageIcon referencia = new ImageIcon("res\\enemy.png");
 		imagem = referencia.getImage();
-		
 		this.largura = imagem.getWidth(null);
 		this.altura = imagem.getHeight(null);
 	}//load
